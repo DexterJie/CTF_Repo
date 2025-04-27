@@ -13,10 +13,22 @@
 
 
 这个时候其实可以写为
+
+
 $$
 B = AL^{E(m)}
 $$
-做一个变换即可求得$L^{E(m)} \equiv B\times A^{-1}\mod p$，记为$M$
+
+
+做一个变换即可求得
+
+
+$$
+L^{E(m)} \equiv B\times A^{-1}\mod p
+$$
+
+
+记为M
 
 把L变为Jordan标准型然后求解矩阵DLP，参考:https://dexterjie.github.io/2024/04/26/%E8%B5%9B%E9%A2%98%E5%A4%8D%E7%8E%B0/2024XYCTF/?highlight=xyc#fakeRSA
 
