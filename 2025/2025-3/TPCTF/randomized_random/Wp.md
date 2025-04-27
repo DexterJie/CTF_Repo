@@ -1,17 +1,3 @@
-# randomized random
-
-> task.py
-
-```py
-# FROM python:3
-import random
-with open("flag.txt","rb") as f:
-    flag=f.read()
-for i in range(2**64):
-    print(random.getrandbits(32)+flag[random.getrandbits(32)%len(flag)])
-    input()
-```
-
 `print(random.getrandbits(32)+flag[random.getrandbits(32)%len(flag)])`
 
 可以看作一次交互给出两个getrandbits(32)中前者的高24bit（实际测试会发现，加上flag的某一个值之后，会影响到低20bit，所以后面取了12bit，这就导致需要的数据更多，矩阵规模变大）
@@ -19,6 +5,8 @@ for i in range(2**64):
 这其实就是不连续的MT19937考点，需要造矩阵。参考：[huangx607087/Explore-MT19937](https://huangx607087.online/2021/07/10/Explore-MT19937/#0x03-%E7%BB%99%E5%87%BA%E4%BB%BB%E6%84%8F19937%E4%B8%AAbit-upd-2025-01-22)
 
 在得到state之后，意味着下式的a,b我们都知道了
+
+
 $$
 c = a + m[b \mod length]
 $$

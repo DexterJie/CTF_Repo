@@ -1,8 +1,8 @@
-# nanonymous msg
+
 
 直接复制题面信息，放到CyberChef中To Hex可以看到隐藏的信息
 
-![](nanonymous msg.assets/1.png)
+![](../../img/TPCTF/1.png)
 
 参考链接：
 
@@ -12,7 +12,7 @@ https://www.utf8-chartable.de/unicode-utf8-table.pl?start=917760
 
 用以下代码将四字节的十六进制值转为`VARIATION SELECTOR-`后的十进制值
 
-![](nanonymous msg.assets/2.png)
+![](../../img/TPCTF/2.png)
 
 ```py
 # hex_data = "f3a08480"
@@ -61,13 +61,13 @@ print(tmp.replace(dict1[236], ' '))  # 下划线断句
 
 单表替换，放到quipquip里，得到`great job inspire by guess the flag writeup of router nii from cefkon ktf dodd quals`
 
-![image-20250310010148400](nanonymous msg.assets/image-20250310010148400.png)
+![](../../img/TPCTF/3.png)
 
 前面明显有意义，但后面没解出来，检索发现题目原型
 
-![image-20250310010250772](nanonymous msg.assets/image-20250310010250772.png)
+![](../../img/TPCTF/4.png)
 
-![image-20250310010341083](nanonymous msg.assets/image-20250310010341083.png)
+![](../../img/TPCTF/5.png)
 
 文章题目符合格式，故可确定为``great job inspire by guess the flag writeup of router nii from defcon ctf 2022 quals``
 
@@ -101,6 +101,3 @@ assert  len(set([i for i in a])) == 30
 
 print(a)   # TPCTF{great_j0b_in5pire_by_gue55_the_flag_writeup_0f_r0uter_nii_fr0m_defc0n_ctf_2022_qual5}
 ```
-
-
-
