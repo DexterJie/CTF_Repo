@@ -23,23 +23,8 @@ $$
 造格
 
 
-$$
-\begin{pmatrix}
-x_0 & x_1 & ... & x_k &1 &k
-\end{pmatrix}
-\begin{pmatrix}
-1 & 0 & ... & 0 & 0 & (0+4660)^e\\
-0 & 1 & ... & 0 & 0 & (1+4660)^e\\
-\vdots & \vdots & \ddots & \vdots & \vdots & \vdots\\
-0 & 0 & ... & 1 & 0 & (k+4660)^e\\
-0 & 0 & ... & 0 & 1 & 64\sum_{i=0}^{k}(i+4660)^e - c\\
-0 & 0 & ... & 0 & 0 & n
-\end{pmatrix}
-=
-\begin{pmatrix}
-x_0 & x_1 & ... & x_k &1 &0
-\end{pmatrix}
-$$
+
+![](img/1.png)
 
 
 
