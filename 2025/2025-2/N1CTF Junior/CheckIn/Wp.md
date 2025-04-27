@@ -3,23 +3,34 @@ $$
 gift = 2025p^2+r^2p \mod \phi(n)
 $$
 
+
+
 可以写为
 $$
 gift = 2025p^2 + r^2p - k\times \phi(n)
 $$
 
+
+
+
 $$
 gift = 2025p^2 + r^2p - k(n +1 - p - \frac{n}{p})
 $$
 
+
+
 再同乘p
+
+
 $$
 gift \times p = 2025p^3 + r^2p^2 - k(np + p - p^2 - n)
 $$
 
+
 $$
 f(p) = 2025p^3 + r^2p^2 - knp -kp +kp^2+kn - gift\times p
 $$
+
 
 $$
 f(p) = 2025p^3 + (r^2 + k)p^2 - (kn+k+gift)p + kn

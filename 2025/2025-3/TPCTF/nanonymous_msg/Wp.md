@@ -2,7 +2,7 @@
 
 直接复制题面信息，放到CyberChef中To Hex可以看到隐藏的信息
 
-![](../../img/TPCTF/1.png)
+![](img/1.png)
 
 参考链接：
 
@@ -12,7 +12,7 @@ https://www.utf8-chartable.de/unicode-utf8-table.pl?start=917760
 
 用以下代码将四字节的十六进制值转为`VARIATION SELECTOR-`后的十进制值
 
-![](../../img/TPCTF/2.png)
+![](img/2.png)
 
 ```py
 # hex_data = "f3a08480"
@@ -61,13 +61,13 @@ print(tmp.replace(dict1[236], ' '))  # 下划线断句
 
 单表替换，放到quipquip里，得到`great job inspire by guess the flag writeup of router nii from cefkon ktf dodd quals`
 
-![](../../img/TPCTF/3.png)
+![](img/3.png)
 
 前面明显有意义，但后面没解出来，检索发现题目原型
 
-![](../../img/TPCTF/4.png)
+![](img/4.png)
 
-![](../../img/TPCTF/5.png)
+![](img/5.png)
 
 文章题目符合格式，故可确定为``great job inspire by guess the flag writeup of router nii from defcon ctf 2022 quals``
 

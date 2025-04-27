@@ -5,14 +5,22 @@
 # part2
 
 由题意得
+
+
 $$
 c \equiv m_0\times(0+4660)^e + m_1 \times (1+4660)^e +... + m_k\times(k+4660)^e \mod n
 $$
+
+
 此时的m的取值范围应该是$(65,128)$，为了降低目标向量，可以写为下式
+
+
 $$
 c \equiv (x_0 + 64)\times (0+4660)^e + (x_1 + 64)\times (1+4660)^e +...+(x_k + 64) \times (k+4660)^e \mod n
 $$
 造格
+
+
 $$
 \begin{pmatrix}
 x_0 & x_1 & ... & x_k &1 &k
