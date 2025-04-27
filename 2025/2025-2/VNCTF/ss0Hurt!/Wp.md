@@ -1,51 +1,17 @@
-
-$$
-\begin{pmatrix}
-x & y & z
-\end{pmatrix}
-\begin{pmatrix}
-5 & 0 & 0 \\
-1 & 5 &0\\
--5 & -1 & 5
-\end{pmatrix}
-=
-
-\begin{pmatrix}
-5x+y-5z & 5y-z & 5z
-\end{pmatrix}
-$$
+![](img/1.png)
 
 跟GPT耗了一段时间，最后的hash其实就是：
-$$
-(x_n,y_n,z_n)= 
-\begin{pmatrix}
-2025 & 208 & 209
-\end{pmatrix}
-\begin{pmatrix}
-5 & 0 & 0 \\
-1 & 5 &0\\
--5 & -1 & 5
-\end{pmatrix}^{E(m)}
-$$
+
+![](img/2.png)
+
+
+
 其中$E(m) = m + 2^{mbits}$，手动添两行
-$$
-\begin{pmatrix}
-x_n & y_n & z_n\\
-x_{n+1} & y_{n+1} & z_{n+1}\\
-x_{n+1} & y_{n+1} & z_{n+1}
-\end{pmatrix}
-= 
-\begin{pmatrix}
-2025 & 208 & 209\\
-9288 & 831 & 1045\\
-42046 & 3110 & 5225
-\end{pmatrix}
-\begin{pmatrix}
-5 & 0 & 0 \\
-1 & 5 &0\\
--5 & -1 & 5
-\end{pmatrix}^{E(m)}
-$$
+
+![](img/3.png)
+
+
+
 这个时候其实可以写为
 $$
 B = AL^{E(m)}
