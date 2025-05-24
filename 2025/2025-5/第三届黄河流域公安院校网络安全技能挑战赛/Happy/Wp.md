@@ -58,8 +58,7 @@ print(new)
 $$
 \begin{pmatrix}
 s_{1876} \\ s_{1877} \\ \vdots \\ s_{2023}
-\end{pmatrix} = 
-\begin{pmatrix}
+\end{pmatrix} =  \begin{pmatrix}
 0 & 1 & ... & 0\\
 0 & 0 & ... & 0\\
 \vdots & \vdots & \ddots & \vdots\\
@@ -86,8 +85,7 @@ out_{1,6}\\
 out_{1,7}\\
 out_{1,8}
 \end{pmatrix}
-_{8\times 1} =
-\begin{pmatrix}
+_{8\times 1} = \begin{pmatrix}
 M_1\\
 M_2\\
 M_3\\
@@ -117,8 +115,7 @@ out_{2,6}\\
 out_{2,7}\\
 out_{2,8}
 \end{pmatrix}
-_{8\times 1} =
-\begin{pmatrix}
+_{8\times 1} = \begin{pmatrix}
 M_9\\
 M_{10}\\
 M_{11}\\
@@ -143,8 +140,7 @@ out_{1,1}\\
 out_{1,2}\\
 \vdots \\
 out_{60,8}\\
-\end{pmatrix} =
-\begin{pmatrix}
+\end{pmatrix} = \begin{pmatrix}
 M_1\\
 M_2\\
 \vdots \\
