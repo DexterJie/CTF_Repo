@@ -17,8 +17,8 @@ $$
 
 $$
 \begin{pmatrix}
-s_{i+1} \\ s_{i+2} \\ \vdots \\ s_{i+128}
-\end{pmatrix} = \begin{pmatrix}
+s_{i+1} & s_{i+2} & \dots & s_{i+128}
+\end{pmatrix}^T = \begin{pmatrix}
 0 & 1 & ... & 0\\
 0 & 0 & ... & 0\\
 \vdots & \vdots & \ddots & \vdots\\
@@ -26,8 +26,8 @@ m_0 & m_1 & ... & m_{127}
 \end{pmatrix}
 \times 
 \begin{pmatrix}
-s_i \\ s_{i+1} \\ \vdots \\ s_{i+127}
-\end{pmatrix}
+s_i & s_{i+1} & \dots & s_{i+127}
+\end{pmatrix}^T
 $$
 
 ```py
