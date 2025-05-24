@@ -73,9 +73,8 @@ $$
 
 记 $M = L^{2023}$ ,那么 $s_{2023}$ 可以通过M最后一行乘上seed得到，即`bit1 = M[-1] * seed_vec`
 
-第二个bit是 $s_{4046}$ ，同理`bit2 = M^2[-1] * seed_vec`
+第二个bit是 $s_{4046}$ ，同理 bit2 = M^2[-1] * seed_vec
 
-<br>
 
 $$
 \begin{pmatrix}
