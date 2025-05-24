@@ -21,6 +21,7 @@ $$
 
 
 
+<br>
 $$
 \begin{pmatrix}
 s_{i+1} \\ s_{i+2} \\ \vdots \\ s_{i+128}
