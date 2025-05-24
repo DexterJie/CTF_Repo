@@ -1,6 +1,5 @@
 `fuc0`中生成bit的逻辑等价于
 
-
 $$
 bit = \begin{pmatrix}
 s_0 & ... & s_{127}
@@ -13,15 +12,8 @@ m_{127}
 \mod 2
 $$
 
-
-
-
-
 那么newstate和state的线性关系如下，前127行表示左移，最后一行表示newbit的生成
 
-
-
-<br>
 $$
 \begin{pmatrix}
 s_{i+1} \\ s_{i+2} \\ \vdots \\ s_{i+128}
@@ -38,10 +30,6 @@ m_0 & m_1 & ... & m_{127}
 s_i \\ s_{i+1} \\ \vdots \\ s_{i+127}
 \end{pmatrix}
 $$
-
-
-
-
 
 ```py
 mask = 109908700282042807039366676242995409413
@@ -69,10 +57,6 @@ print(new)
 
 这里看第一个字节，记为`out1`，它的第一个bit记为`bit1`，`bit1 = s2023`
 
-
-
-
-
 $$
 \begin{pmatrix}
 s_{1876} \\ s_{1877} \\ \vdots \\ s_{2023}
@@ -90,17 +74,9 @@ s_{0} \\ s_{1} \\ \vdots \\ s_{127}
 \end{pmatrix}
 $$
 
-
-
-
-
 记$M = L^{2023}$,那么$s_{2023}$可以通过M最后一行乘上seed得到，即`bit1 = M[-1] * seed_vec`
 
 第二个bit是$s_{4046}$，同理`bit2 = M^2[-1] * seed_vec`
-
-
-
-
 
 $$
 \begin{pmatrix}
@@ -131,15 +107,7 @@ s_{0} \\ s_{1} \\ \vdots \\ s_{127}
 \end{pmatrix}_{128\times 1}
 $$
 
-
-
-
-
 记第二个字节为`out2`，它与seed存在下面的关系
-
-
-
-
 
 $$
 \begin{pmatrix}
@@ -170,15 +138,7 @@ s_{0} \\ s_{1} \\ \vdots \\ s_{127}
 \end{pmatrix}_{128\times 1}
 $$
 
-
-
-
-
 每个out可以与seed建立8个方程，用上前16个字节，建立下面的矩阵方程即可解出seed
-
-
-
-
 
 $$
 \begin{pmatrix}
@@ -198,10 +158,6 @@ M_{480}
 s_{0} \\ s_{1} \\ \vdots \\ s_{127}
 \end{pmatrix}
 $$
-
-
-
-
 
 解出seed后带回就可以求flag了
 
