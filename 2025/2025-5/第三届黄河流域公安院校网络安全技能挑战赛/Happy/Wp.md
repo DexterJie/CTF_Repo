@@ -14,7 +14,7 @@ $$
 
 那么newstate和state的线性关系如下，前127行表示左移，最后一行表示newbit的生成
 
-
+<br>
 
 $$
 bit = \begin{pmatrix}
