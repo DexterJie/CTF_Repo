@@ -1,5 +1,4 @@
 `fuc0`中生成bit的逻辑等价于
-
 $$
 bit = \begin{pmatrix}
 s_0 & ... & s_{127}
@@ -30,12 +29,6 @@ s_i \\ s_{i+1} \\ \vdots \\ s_{i+127}
 \end{pmatrix}
 $$
 
-
-
-<br>
-
-
-
 ```py
 mask = 109908700282042807039366676242995409413
 mask_vec = vector(GF(2),list(map(int,bin(mask)[2:].zfill(128))))
@@ -65,8 +58,7 @@ print(new)
 $$
 \begin{pmatrix}
 s_{1876} \\ s_{1877} \\ \vdots \\ s_{2023}
-\end{pmatrix}
-=
+\end{pmatrix} = 
 \begin{pmatrix}
 0 & 1 & ... & 0\\
 0 & 0 & ... & 0\\
@@ -94,7 +86,7 @@ out_{1,6}\\
 out_{1,7}\\
 out_{1,8}
 \end{pmatrix}
-_{8\times 1}=
+_{8\times 1} =
 \begin{pmatrix}
 M_1\\
 M_2\\
@@ -125,7 +117,7 @@ out_{2,6}\\
 out_{2,7}\\
 out_{2,8}
 \end{pmatrix}
-_{8\times 1}=
+_{8\times 1} =
 \begin{pmatrix}
 M_9\\
 M_{10}\\
@@ -151,8 +143,7 @@ out_{1,1}\\
 out_{1,2}\\
 \vdots \\
 out_{60,8}\\
-\end{pmatrix}
-=
+\end{pmatrix} =
 \begin{pmatrix}
 M_1\\
 M_2\\
