@@ -71,9 +71,11 @@ s_{0} \\ s_{1} \\ \vdots \\ s_{127}
 \end{pmatrix}
 $$
 
-记 $M = L^{2023}$ ,那么 $s\_{2023}$ 可以通过M最后一行乘上seed得到，即`bit1 = M[-1] * seed_vec`
+记 $M = L^{2023}$ ,那么 $s_{2023}$ 可以通过M最后一行乘上seed得到，即`bit1 = M[-1] * seed_vec`
 
-第二个bit是 $s\_{4046}$ ，同理`bit2 = M^2[-1] * seed_vec`
+第二个bit是 $s_{4046}$ ，同理`bit2 = M^2[-1] * seed_vec`
+
+<br>
 
 $$
 \begin{pmatrix}
