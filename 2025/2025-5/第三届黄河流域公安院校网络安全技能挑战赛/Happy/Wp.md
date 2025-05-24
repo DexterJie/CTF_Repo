@@ -13,12 +13,6 @@ m_{127}
 $$
 
 那么newstate和state的线性关系如下，前127行表示左移，最后一行表示newbit的生成
-
-$$ 
-
-111
-
-$$
 $$
 \begin{pmatrix}
 s_{i+1} \\ s_{i+2} \\ \vdots \\ s_{i+128}
