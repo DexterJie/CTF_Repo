@@ -126,7 +126,8 @@ M_{13}\\
 M_{14}\\
 M_{15}\\
 M_{16}
-\end{pmatrix}_{8\times 128}
+\end{pmatrix}
+\_{8\times 128}
 \times
 \begin{pmatrix}
 s_{0} \\ s_{1} \\ \vdots \\ s_{127}
