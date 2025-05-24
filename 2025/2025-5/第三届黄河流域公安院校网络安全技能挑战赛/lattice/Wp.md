@@ -110,15 +110,22 @@ $$
 $$
 
 等价于
+
+
 $$
 \tan{(iv)} = -leak
 $$
+
+
+
 
 $$
 \therefore iv = \arctan{(-leak)} + 2k\pi
 $$
 
 很经典的板子题，造格
+
+
 $$
 \begin{pmatrix}
 iv & -1 & k
@@ -133,6 +140,8 @@ iv & -1 & k
 iv & -2^k & 0
 \end{pmatrix}
 $$
+
+
 
 > exp.sage
 
