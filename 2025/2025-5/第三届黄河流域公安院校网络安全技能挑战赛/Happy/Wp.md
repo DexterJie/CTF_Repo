@@ -116,7 +116,8 @@ out_{2,5}\\
 out_{2,6}\\
 out_{2,7}\\
 out_{2,8}
-\end{pmatrix}_{8\times 1} = \begin{pmatrix}
+\end{pmatrix}
+\_{8\times 1} = \begin{pmatrix}
 M_9\\
 M_{10}\\
 M_{11}\\
