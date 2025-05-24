@@ -75,7 +75,6 @@ $$
 
 第二个bit是 $s_{4046}$ ，同理`bit2 = M^2[-1] * seed_vec`
 
-aaaa
 
 $$
 \begin{pmatrix}
@@ -88,7 +87,7 @@ out_{1,6}\\
 out_{1,7}\\
 out_{1,8}
 \end{pmatrix}
-_{8\times 1} = \begin{pmatrix}
+\_{8\times 1} = \begin{pmatrix}
 M_1\\
 M_2\\
 M_3\\
@@ -98,11 +97,11 @@ M_6\\
 M_7\\
 M_8
 \end{pmatrix}
-_{8\times 128}
+\_{8\times 128}
 \times
 \begin{pmatrix}
 s_{0} \\ s_{1} \\ \vdots \\ s_{127}
-\end{pmatrix}_{128\times 1}
+\end{pmatrix}\_{128\times 1}
 $$
 
 记第二个字节为`out2`，它与seed存在下面的关系
