@@ -58,8 +58,8 @@ print(new)
 
 $$
 \begin{pmatrix}
-s_{1876} \\ s_{1877} \\ \vdots \\ s_{2023}
-\end{pmatrix} = \begin{pmatrix}
+s_{1876} & s_{1877} & \dots & s_{2023}
+\end{pmatrix}^T = \begin{pmatrix}
 0 & 1 & ... & 0\\
 0 & 0 & ... & 0\\
 \vdots & \vdots & \ddots & \vdots\\
@@ -67,8 +67,8 @@ m_0 & m_1 & ... & m_{127}
 \end{pmatrix}^{2023}
 \times 
 \begin{pmatrix}
-s_{0} \\ s_{1} \\ \vdots \\ s_{127}
-\end{pmatrix}
+s_{0} & s_{1} & \dots & s_{127}
+\end{pmatrix}^T
 $$
 
 记 $M = L^{2023}$ ,那么 $s_{2023}$ 可以通过M最后一行乘上seed得到，即`bit1 = M[-1] * seed_vec`
@@ -100,8 +100,8 @@ M_8
 \_{8\times 128}
 \times
 \begin{pmatrix}
-s_{0} \\ s_{1} \\ \vdots \\ s_{127}
-\end{pmatrix}\_{128\times 1}
+s_{0} & s_{1} & \dots & s_{127}
+\end{pmatrix}^T\_{128\times 1}
 $$
 
 记第二个字节为`out2`，它与seed存在下面的关系
@@ -130,8 +130,8 @@ M_{16}
 \_{8\times 128}
 \times
 \begin{pmatrix}
-s_{0} \\ s_{1} \\ \vdots \\ s_{127}
-\end{pmatrix}
+s_{0} & s_{1} & \dots & s_{127}
+\end{pmatrix}^T
 \_{128\times 1}
 $$
 
@@ -150,8 +150,8 @@ M_2\\
 M_{480}
 \end{pmatrix}
 \times\begin{pmatrix}
-s_{0} \\ s_{1} \\ \vdots \\ s_{127}
-\end{pmatrix}
+s_{0} & s_{1} & \dots & s_{127}
+\end{pmatrix}^T
 $$
 
 解出seed后带回就可以求flag了
