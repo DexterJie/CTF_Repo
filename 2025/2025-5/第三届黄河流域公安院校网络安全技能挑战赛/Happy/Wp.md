@@ -131,7 +131,8 @@ M_{16}
 \times
 \begin{pmatrix}
 s_{0} \\ s_{1} \\ \vdots \\ s_{127}
-\end{pmatrix}_{128\times 1}
+\end{pmatrix}
+\_{128\times 1}
 $$
 
 每个out可以与seed建立8个方程，用上前16个字节，建立下面的矩阵方程即可解出seed
