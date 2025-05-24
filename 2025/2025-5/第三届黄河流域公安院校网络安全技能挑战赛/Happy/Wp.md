@@ -1,4 +1,5 @@
 `fuc0`中生成bit的逻辑等价于
+
 $$
 bit = \begin{pmatrix}
 s_0 & ... & s_{127}
