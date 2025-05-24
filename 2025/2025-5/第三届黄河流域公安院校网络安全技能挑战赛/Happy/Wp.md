@@ -117,7 +117,7 @@ out_{2,6}\\
 out_{2,7}\\
 out_{2,8}
 \end{pmatrix}
-_{8\times 1} = \begin{pmatrix}
+\_{8\times 1} = \begin{pmatrix}
 M_9\\
 M_{10}\\
 M_{11}\\
@@ -127,7 +127,7 @@ M_{14}\\
 M_{15}\\
 M_{16}
 \end{pmatrix}
-_{8\times 128}
+\_{8\times 128}
 \times
 \begin{pmatrix}
 s_{0} \\ s_{1} \\ \vdots \\ s_{127}
