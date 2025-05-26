@@ -37,7 +37,7 @@ $$
 
 
 
-记`t = k(p-1)`，根据费马小定理有$2^t \equiv 1 \mod p$，所以`p = gmpy2.gcd(pow(2,t,n)-1,n)`
+记`t = k(p-1)`，根据费马小定理有 $2^t \equiv 1 \mod p$ ，所以`p = gmpy2.gcd(pow(2,t,n)-1,n)`
 
 > exp
 
