@@ -28,19 +28,30 @@ m = bytes_to_long(bytes.fromhex(msg))
 ```
 
 根据下式生成签名
+
+
 $$
 sigature \equiv m^d \mod n
 $$
+
+
 题目的`private_key = RSA.generate(2048)`,查看源码可以知道e=65537，考虑如何获得n
 
 通过两组签名：
+
+
 $$
 s_1 = (m_h + h_1)^d \mod n
 $$
 
+
+
+
 $$
 s_2 = (m_h + h_2)^d \mod n
 $$
+
+
 
 `n = gcd(s1^e - m1,s2^e - m2)`，实现代码如下
 
