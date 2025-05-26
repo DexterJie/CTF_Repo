@@ -1,9 +1,11 @@
 由题意知
 
 
+
 $$
 enc \equiv \sum_{i=0}^{127}m_i\times pubkey_i \mod p
 $$
+
 
 
 这里计算密度为`0.9921939197933715`
@@ -21,9 +23,11 @@ print(CDF(d))
 密度大于0.94，需要进行一些前置处理，利用已知flag信息，可以将本题转换为8字节未知明文背包，即如下这个式子
 
 
+
 $$
 enc - known \equiv \sum_{i=55}^{119}m_i\times pubkey_i \mod p
 $$
+
 
 
 此时计算新的密度为`0.5000727763907822`
@@ -47,6 +51,7 @@ print(CDF(d))
 于是造了这个格进行尝试
 
 
+
 $$
 \begin{pmatrix}
 m_{55} & ... & m_{127} & -1 & k
@@ -57,15 +62,15 @@ m_{55} & ... & m_{127} & -1 & k
 0 & ... & 2 & pubkey_{127}\\
 1 & ... & 1  & c\\
 0 & ... &0 &p
-\end{pmatrix}\_{66\times 65}
-=
-\begin{pmatrix}
+\end{pmatrix}\_{66\times 65} = \begin{pmatrix}
 2m_{55}-1 & ... & 2m_{127}-1 & 0
 \end{pmatrix}\_{1\times 65}
 $$
 
 
+
 无果，接着尝试在右边扩展8列，每一列对应位置有8个1，依次去约束每个字中bit1的个数
+
 
 
 $$
@@ -78,12 +83,11 @@ m_1 & ... & m_n & -1 & k
 0 & ... & 2 & pubkey_n & 0 & ... & 1\\
 1 & ... & 1  & c & 0 & ... & 0 &\\
 0 & ... &0 &p & -t_1 & ... & -t_8
-\end{pmatrix}\_{66\times 73}
-=
-\begin{pmatrix}
+\end{pmatrix}\_{66\times 73} = \begin{pmatrix}
 2m_1-1 & ... & 2m_n-1 & 0 & \sum_{i=1}^{8}m_i -t_1 & ... &\sum_{i=56}^{64}m_{i}-t_8 
 \end{pmatrix}\_{1\times 73}
 $$
+
 
 
 依旧无果，在此纠结了很久，看解题数越来越多，想着应该不是特别特别难
@@ -91,12 +95,15 @@ $$
 回到处理掉flag已知信息的等式
 
 
+
 $$
 enc - known \equiv \sum_{i=55}^{119}m_i\times pubkey_i \mod p
 $$
 
 
+
 即
+
 
 
 $$
@@ -104,7 +111,9 @@ enc-known = \sum_{i=55}^{119}m_i\times pubkey_i - kp
 $$
 
 
+
 这里只需要求64个未知bit，所以k不会特别大，可以爆破这个k，然后用下面这个格
+
 
 
 $$
@@ -116,12 +125,11 @@ m_{55} & ... & m_{127} & -1
 \vdots&\ddots &\vdots&\vdots\\
 0 & ... & 2 & pubkey_{127}\\
 1 & ... & 1  & S\\
-\end{pmatrix}\_{65\times 65}
-=
-\begin{pmatrix}
+\end{pmatrix}\_{65\times 65} = \begin{pmatrix}
 2m_{55}-1 & ... & 2m_{127}-1 & 0
 \end{pmatrix}\_{1\times 65}
 $$
+
 
 
 其中`S = enc - known + kp`
