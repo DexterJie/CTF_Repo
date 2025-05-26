@@ -1,0 +1,90 @@
+dp高位泄露，e和dp满足
+
+
+$$
+ed_p = k(p-1) + 1
+$$
+
+
+这里给的dp是高位，所以有
+
+
+$$
+e(d_p + x) = k(p-1) + 1
+$$
+
+
+在模p下有
+
+
+$$
+e(d_p + x) + k - 1 \equiv 0 \mod p
+$$
+
+
+k和e是一个数量级，二元copper得解
+
+```py
+# sage10.6
+from Crypto.Util.number import *
+import gmpy2
+import itertools
+
+def small_roots(f, bounds, m=1, d=None):
+    if not d:
+        d = f.degree()
+        print(d)
+    R = f.base_ring()
+    N = R.cardinality()
+    f /= f.coefficients().pop(0)
+    f = f.change_ring(ZZ)
+    G = Sequence([], f.parent())
+    for i in range(m + 1):
+        base = N ^ (m - i) * f ^ i
+        for shifts in itertools.product(range(d), repeat=f.nvariables()):
+            g = base * prod(map(power, f.variables(), shifts))
+            G.append(g)
+    B, monomials = G.coefficient_matrix()
+    monomials = vector(monomials)
+    factors = [monomial(*bounds) for monomial in monomials]
+    for i, factor in enumerate(factors):
+        B.rescale_col(i, factor)
+    B = B.dense_matrix().LLL()
+    B = B.change_ring(QQ)
+    for i, factor in enumerate(factors):
+        B.rescale_col(i, 1 / factor)
+    H = Sequence([], f.parent().change_ring(QQ))
+    for h in filter(None, B * monomials):
+        H.append(h)
+        I = H.ideal()
+        if I.dimension() == -1:
+            H.pop()
+        elif I.dimension() == 0:
+            roots = []
+            for root in I.variety(ring=ZZ):
+                root = tuple(R(root[var]) for var in f.variables())
+                roots.append(root)
+            return roots
+    return []
+
+e = 1915595112993511209389477484497
+n = 12058282950596489853905564906853910576358068658769384729579819801721022283769030646360180235232443948894906791062870193314816321865741998147649422414431603039299616924238070704766273248012723702232534461910351418959616424998310622248291946154911467931964165973880496792299684212854214808779137819098357856373383337861864983040851365040402759759347175336660743115085194245075677724908400670513472707204162448675189436121439485901172477676082718531655089758822272217352755724670977397896215535981617949681898003148122723643223872440304852939317937912373577272644460885574430666002498233608150431820264832747326321450951
+c = 5408361909232088411927098437148101161537011991636129516591281515719880372902772811801912955227544956928232819204513431590526561344301881618680646725398384396780493500649993257687034790300731922993696656726802653808160527651979428360536351980573727547243033796256983447267916371027899350378727589926205722216229710593828255704443872984334145124355391164297338618851078271620401852146006797653957299047860900048265940437555113706268887718422744645438627302494160620008862694047022773311552492738928266138774813855752781598514642890074854185464896060598268009621985230517465300289580941739719020511078726263797913582399
+leak = 10818795142327948869191775315599184514916408553660572070587057895748317442312635789407391509205135808872509326739583930473478654752295542349813847128992385262182771143444612586369461112374487380427668276692719788567075889405245844775441364204657098142930
+leak <<= 180
+R.<x,y> = PolynomialRing(Zmod(n),implementation='generic')
+f = e * (leak + x) + (y - 1)
+res = small_roots(f,(2^180,2^101),m=2,d=4)
+print(res)
+for root in res:
+    dp_low = root[0]
+    dp = leak + dp_low
+    tmp = pow(2,e*dp,n) - 2
+    p = gmpy2.gcd(tmp,n)
+    q = n // p
+    d = inverse(e,(p-1)*(q-1))
+    m = pow(c,d,n)
+    print(long_to_bytes(m))
+# LitCTF{03ecda15d1a89b06454c6050c1bd489f}
+```
+

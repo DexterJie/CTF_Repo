@@ -1,4 +1,6 @@
 由题意知
+
+
 $$
 hint = n+ noise(p+q) + noise^2
 $$
@@ -6,6 +8,8 @@ $$
 $$
 hint - n = noise\times (p+q+noise)
 $$
+
+
 
 求出`hint - n`，到factordb能查到noise
 
