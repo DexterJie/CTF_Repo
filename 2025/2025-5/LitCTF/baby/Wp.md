@@ -1,16 +1,24 @@
 由题意知
+
+
 $$
 data \equiv tm^{-1} \mod g
 $$
 所以
+
+
 $$
 data\times m \equiv t \mod g
 $$
 即
+
+
 $$
 t = data\times m -kg
 $$
 造格
+
+
 $$
 \begin{pmatrix}
 m & k
