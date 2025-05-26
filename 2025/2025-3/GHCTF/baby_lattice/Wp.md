@@ -7,6 +7,7 @@ $$
 HNP问题，根据等式： $z_i \equiv g_i - t_i\times key \mod p$ 造格
 
 
+
 $$
 \begin{pmatrix}
 k_1 & k_2 & ... &k_n & key & 1
@@ -19,9 +20,11 @@ p & 0 & ... & 0 & 0 & 0\\
 t_0 & t_1 & ... & t_n & \frac{1}{2^{112}} & 0\\
 g_0 & g_1 & ... & g_n & 0 & 2^{400}
 \end{pmatrix} = \begin{pmatrix}
-z_0 & z_1 & ... z_n & key/2^{112} & 2^{400}
+z_0 & z_1 & ... z_n & \frac{key}{2^{112}} & 2^{400}
 \end{pmatrix}
 $$
+
+
 求出 $z_0$ 之后再求key
 
 ```py
