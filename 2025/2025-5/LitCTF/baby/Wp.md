@@ -32,9 +32,7 @@ m & k
 \begin{pmatrix}
 1 & c \\
 0 & g
-\end{pmatrix}
-=
-\begin{pmatrix}
+\end{pmatrix} = \begin{pmatrix}
 m & t
 \end{pmatrix}
 $$
