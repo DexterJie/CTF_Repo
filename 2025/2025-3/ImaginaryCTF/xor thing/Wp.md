@@ -26,9 +26,7 @@ A_{0,0} & A_{0,1} & ... & A_{0,63}\\
 A_{1,0} & A_{1,1} & ... & A_{1,63}\\
 \vdots & \vdots & \ddots & \vdots\\
 A_{47,0} & A_{47,1} & ... & A_{47,63}
-\end{pmatrix}
-=
-\begin{pmatrix}
+\end{pmatrix} = \begin{pmatrix}
 b_0 & b_1 & ... & b_{63}
 \end{pmatrix}
 $$
