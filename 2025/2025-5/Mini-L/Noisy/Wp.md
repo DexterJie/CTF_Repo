@@ -148,7 +148,6 @@ $$
 求右核空间即可得到 $m_i$ 
 
 ```python
-# sage10.6
 from Crypto.Util.number import *
 from Crypto.Cipher import AES
 from hashlib import md5
@@ -166,8 +165,7 @@ for i in range(length-1):
 Ge[-1,-1] = n
 # for line in Ge.LLL():
 #     print(line)
-
-u = Ge.LLL()[:-2]           # 上面打印出来发现除最后两行外都是短向量
+u = Ge.LLL()[:-2]           # 上面打印出来发现除最后两行外都是短向量,所以取前面的所有短向量作为一个矩阵
 x = Matrix(u).right_kernel().matrix()[0].list()
 
 # Step 2 get m_i and flag
@@ -177,19 +175,17 @@ for i in range(l):
     L[i,i] = 1
     L[i,-1] = x[i]
 L[:,-1] *= 2^100
-
 # for line in L.LLL():
 #     print(line)
-u = L.LLL()[:-2]           # 除了最后一行的最后一个元素不为0
+u = L.LLL()[:-2]           # 除了最后一行的最后一个元素不为0，取除最后一行外的向量作为矩阵
 u_matrix = Matrix(ZZ,[line[:-1] for line in u])
-u_right_kernel = u_matrix.right_kernel().matrix()   # 这个matrix不止一行，所以需要再次规约才能得到m
+u_right_kernel = u_matrix.right_kernel().matrix()       # 右核不止一行，所以对右核再次规约才能得到m
 for line in u_right_kernel.LLL():
     msg = line.list()
     key = md5(str(msg).encode()).digest()
     aes = AES.new(key, AES.MODE_ECB)
     flag = aes.decrypt(bytes.fromhex(encrypted_flag))
     print(flag)
-    # miniLCTF{enj0y_th3_g4m3!}
 ```
 
 
