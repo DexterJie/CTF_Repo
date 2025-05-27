@@ -15,50 +15,77 @@ $$
 x_1 = ax_0 \mod MOD \otimes s_0
 $$
 
+
+
+
 $$
 x_2 = ax_1 \mod MOD \otimes s_1
 $$
 
+
 $$
-\vdots 
+\vdots
 $$
+
+
+
 
 $$
 x_7 = ax_6 \mod MOD \otimes s_6
 $$
 
+
+
+
 $$
 res = x_7 \otimes length \quad \& \quad mask
 $$
 
+
+
 由于每一步存在异或操作，比较难处理。但注意到 $s_i$ 的取值范围为$[0,255]$，这样的话 $\otimes s_i$ 可以看作 $\pm b_i$ 。于是hash的计算过程可以看作如下流程
+
 
 
 $$
 x_0 = b_0 \times 2^7
 $$
 
+
+
+
 $$
 x_1 = ax_0 + b_0 \mod MOD
 $$
+
+
+
 
 $$
 x_2 = ax_1 + b_1 \mod MOD
 $$
 
+
 $$
-\vdots 
+\vdots
 $$
+
 
 $$
 x_7 = ax_6 + b_6 \mod MOD
 $$
 
+
+
+
 $$
 res = x_7 \otimes length \quad \& \quad mask
 $$
 
+
+
 通过`res`这步求$x_7$非常容易，如`x7 = res ^ length & mask`，所以直接从$x_7$入手，经过上面的过程
+
 
 
 $$
@@ -66,7 +93,9 @@ x_7 = (128a^7 + a_6)b_0 + a^5b_1 + ... + ab_5 + b_6 \mod MOD
 $$
 
 
+
 $b_i$ 的取值也介于$[0,255]$，记`x7`为`c`通过造格规约出 $b_i$
+
 
 
 $$
@@ -86,14 +115,21 @@ b_0 & b_1 & ... & b_{length-1} & 256 & 0
 $$
 
 
+
 规约出 $b_i$ 之后，我们利用两个等式求原先的字符 $s_i$
+
+
 $$
 x_7 = ax_6 \mod MOD \otimes s_6 \quad (1)
 $$
 
+
+
+
 $$
 x_7 = ax_6 + b_6 \mod MOD \quad (2)
 $$
+
 
 
 先计算 $ax_6 = x_7 - b_6 \mod MOD$ ，再计算 $s_6 = x_7 \otimes ax_6$ ，求出 $s_6$ 之后，计算 $x_6 = (x_7 \otimes s_6)\times a^{-1} \mod MOD$ ，以此类推。exp如下
@@ -148,9 +184,13 @@ for line in Ge.LLL():
 依旧把异或看作 $\pm b_i$ ，所以整个计算过程可以用下面这个多项式表达
 
 
+
 $$
 x_{32} = (128a^{32} + a^{31})b_0 + a^{30}b_1 + ... + ab_{29} + b_{30} \mod MOD
 $$
+
+
+
 
 $$
 res = x_{32} \otimes length \quad \& \quad mask
@@ -159,6 +199,7 @@ $$
 
 
 同样造格把 $b_i$ 规约出来，然后求原先字符串
+
 
 
 $$
@@ -176,6 +217,10 @@ b_0 & b_1 &...& b_{31} & 1 & k
 b_0 & b_1 & ... & b_{31} & 1 & 0
 \end{pmatrix}
 $$
+
+
+
+
 
 
 ```py
