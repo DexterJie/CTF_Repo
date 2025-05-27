@@ -36,12 +36,7 @@ $$
 
 
 
-
-$$
-res = x_7 \otimes length \quad \& \quad mask
-$$
-
-
+`res = x7 ^ length &  mask`
 
 由于每一步存在异或操作，比较难处理。但注意到 $s_i$ 的取值范围为$[0,255]$，这样的话 $\otimes s_i$ 可以看作 $\pm b_i$ 。于是hash的计算过程可以看作如下流程
 
@@ -77,12 +72,7 @@ $$
 
 
 
-
-$$
-res = x_7 \otimes length \quad \& \quad mask
-$$
-
-
+`res = x7 ^ length &  mask`
 
 通过`res`这步求$x_7$非常容易，如`x7 = res ^ length & mask`，所以直接从$x_7$入手，经过上面的过程
 
@@ -191,12 +181,7 @@ $$
 
 
 
-
-$$
-res = x_{32} \otimes length \quad \& \quad mask
-$$
-
-
+`res = x32 ^ length & mask`
 
 同样造格把 $b_i$ 规约出来，然后求原先字符串
 
