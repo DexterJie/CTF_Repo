@@ -85,6 +85,8 @@ $$
 $$
 \sum_{i=1}^{n-1}u_i \cdot [\frac{c_i}{c_n}]\_{c_0} = 0
 $$
+
+
 那么就可以推出
 
 
@@ -93,7 +95,19 @@ $$
 $$
 
 
-（这一步我不太会证明），此时 $\begin{pmatrix} u_1 & u_2 & ... & u_{n-1} & u_n \end{pmatrix}$ 和 $\begin{pmatrix} x_1 & x_2 & ... & x_{n-1} & x_n \end{pmatrix}$ 正交，即 $\sum_{i=1}^{n} u_ix_i = 0$ 。用多组这样的 $u_i$ 求右核可以得到 $x_i$
+（这一步我不太会证明），此时下面两个向量正交
+
+
+$$
+\begin{pmatrix} u_1 & u_2 & ... & u_{n-1} & u_n \end{pmatrix}
+$$
+ 
+$$
+\begin{pmatrix} x_1 & x_2 & ... & x_{n-1} & x_n \end{pmatrix}
+$$
+
+
+即 $\sum_{i=1}^{n} u_ix_i = 0$ 。用多组这样的 $u_i$ 求右核可以得到 $x_i$
 
 
 $$
@@ -119,7 +133,19 @@ u_1 & u_2 & ... & u_n & \sum_{i=1}^{n} u_ix_i
 $$
 
 
-同理，如果 $\sum_{i=1}^{n} u_ix_i = 0$ 即 $\sum_{i=1}^{n}u_i (m_i + k_iM) = 0$ 那么能够推出 $\sum_{i=1}^{n} u_im_i = 0 \mod M$ ，这样的话 $\begin{pmatrix} u_1 & u_2 & ... & u_n \end{pmatrix}$ 和 $\begin{pmatrix} m_1 & m_2 & ... & m_n \end{pmatrix}$ 正交，求右核空间得到 $m_i$ 。
+同理，如果 $\sum_{i=1}^{n} u_ix_i = 0$ 即 $\sum_{i=1}^{n}u_i (m_i + k_iM) = 0$ 那么能够推出 $\sum_{i=1}^{n} u_im_i = 0 \mod M$ ，这样的话下面两个向量正交
+
+
+$$
+\begin{pmatrix} u_1 & u_2 & ... & u_n \end{pmatrix}
+$$
+
+$$
+\begin{pmatrix} m_1 & m_2 & ... & m_n \end{pmatrix}
+$$
+
+
+求右核空间即可得到 $m_i$ 
 
 ```python
 # sage10.6
