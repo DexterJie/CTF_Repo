@@ -67,6 +67,8 @@ u_1 & u_2 & ... & u_{n-1} & u_n
 u_1 & u_2 &... &u_{n-1} & \sum_{i=1}^{n-1}u_i \cdot[\frac{-c_i}{c_n}]_{c_0}
 \end{pmatrix}
 $$
+
+
 我参考 [Revisiting Orthogonal Lattice Attacks on Approximate Common Divisor Problems and their Applications](https://eprint.iacr.org/2018/1208.pdf) 分析了下这个格的作用
 
 首先我们拿 $c_i$ 在 模 $c_0 = pq$ 下“除”去 $c_n$ 。由于涉及“除法”，所以考不考虑 $s$ 都无所谓了。
