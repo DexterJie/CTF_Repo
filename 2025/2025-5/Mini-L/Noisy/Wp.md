@@ -58,13 +58,13 @@ $$
 u_1 & u_2 & ... & u_{n-1} & u_n
 \end{pmatrix}
 \begin{pmatrix}
-1 & 0 & ... & 0 & [\frac{-c_1}{c_n}]_{c_0}\\
-0 & 1 & ... & 0 & [\frac{-c_2}{c_n}]_{c_0}\\
+1 & 0 & ... & 0 & [\frac{-c_1}{c_n}]\_{c_0}\\
+0 & 1 & ... & 0 & [\frac{-c_2}{c_n}]\_{c_0}\\
 \vdots & \vdots & \ddots & \vdots & \vdots \\
-0 & 0 & ... & 1 & [\frac{-c_{n-1}}{c_n}]_{c_0}\\
+0 & 0 & ... & 1 & [\frac{-c_{n-1}}{c_n}]\_{c_0}\\
 0 & 0 & ... & 0 & c_0
 \end{pmatrix} = \begin{pmatrix}
-u_1 & u_2 &... &u_{n-1} & \sum_{i=1}^{n-1}u_i \cdot[\frac{-c_i}{c_n}]_{c_0}
+u_1 & u_2 &... &u_{n-1} & \sum_{i=1}^{n-1}u_i \cdot[\frac{-c_i}{c_n}]\_{c_0}
 \end{pmatrix}
 $$
 
