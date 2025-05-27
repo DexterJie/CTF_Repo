@@ -75,15 +75,15 @@ $$
 
 
 $$
-[\frac{c_i}{c_n}]_{c_0} = \frac{x_{i} + k_{i}x_ip}{x_{n} + k_{n}x_np} = (x_i+k_{i}\cdot x_i \cdot p)(x_n + k_{n}\cdot x_n \cdot p)^{-1} \mod n
+[\frac{c_i}{c_n}]\_{c_0} = \frac{x_{i} + k_{i}x_ip}{x_{n} + k_{n}x_np} = (x_i+k_{i}\cdot x_i \cdot p)(x_n + k_{n}\cdot x_n \cdot p)^{-1} \mod n
 $$
 
 
-此处 $k_i$ 表示不同的 $k_1$ 。我们的目的是找到令 $\sum_{i=1}^{n-1}u_i \cdot [\frac{c_i}{c_n}]_{c_0} = 0$ 的 $\begin{pmatrix} u_1 & u_2 & ... & u_{n-1} & u_n \end{pmatrix}$ ，原因是：根据上面提到的论文，做类似的分析，如果有 
+此处 $k_i$ 表示不同的 $k_1$ 。我们的目的是找到令 $\sum_{i=1}^{n-1}u_i \cdot [\frac{c_i}{c_n}]\_{c_0} = 0$ 的 $\begin{pmatrix} u_1 & u_2 & ... & u_{n-1} & u_n \end{pmatrix}$ ，原因是：根据上面提到的论文，做类似的分析，如果有 
 
 
 $$
-\sum_{i=1}^{n-1}u_i \cdot [\frac{c_i}{c_n}]_{c_0} = 0
+\sum_{i=1}^{n-1}u_i \cdot [\frac{c_i}{c_n}]\_{c_0} = 0
 $$
 那么就可以推出
 
