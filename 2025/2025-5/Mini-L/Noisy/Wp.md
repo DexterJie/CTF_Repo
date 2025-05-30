@@ -123,17 +123,17 @@ $$
 u_1 & u_2 & ... & u_n
 \end{pmatrix}
 \begin{pmatrix}
-1 & 0 & ... & 0 & x_1\\
-0 & 1 & ... & 0 & x_2\\
+1 & 0 & ... & 0 & Kx_1\\
+0 & 1 & ... & 0 & Kx_2\\
 \vdots & \vdots & \ddots & \vdots & \vdots \\
-0 & 0 & ... & 1 & x_n
+0 & 0 & ... & 1 & Kx_n
 \end{pmatrix} = \begin{pmatrix}
-u_1 & u_2 & ... & u_n & \sum_{i=1}^{n} u_ix_i
+u_1 & u_2 & ... & u_n & K\sum_{i=1}^{n} u_ix_i
 \end{pmatrix}
 $$
 
 
-同理，如果 $\sum_{i=1}^{n} u_ix_i = 0$ 即 $\sum_{i=1}^{n}u_i (m_i + k_iM) = 0$ 那么能够推出 $\sum_{i=1}^{n} u_im_i = 0 \mod M$ ，这样的话下面两个向量正交
+同理，如果 $K\sum_{i=1}^{n} u_ix_i = 0$ 即 $K\sum_{i=1}^{n}u_i (m_i + k_iM) = 0$ 那么能够推出 $\sum_{i=1}^{n} u_im_i = 0 \mod M$ ，这样的话下面两个向量正交
 
 
 $$
@@ -177,9 +177,9 @@ for i in range(l):
 L[:,-1] *= 2^100
 # for line in L.LLL():
 #     print(line)
-u = L.LLL()[:-2]           # 除了最后一行的最后一个元素不为0，取除最后一行外的向量作为矩阵
+u = L.LLL()[:-2]
 u_matrix = Matrix(ZZ,[line[:-1] for line in u])
-u_right_kernel = u_matrix.right_kernel().matrix()       # 右核不止一行，所以对右核再次规约才能得到m
+u_right_kernel = u_matrix.right_kernel().matrix()       # 对核空间再次规约才能得到m
 for line in u_right_kernel.LLL():
     msg = line.list()
     key = md5(str(msg).encode()).digest()
@@ -189,7 +189,29 @@ for line in u_right_kernel.LLL():
     # miniLCTF{enj0y_th3_g4m3!}
 ```
 
+其实在第二部分的`u = L.LLL()[:-2]`这里，格L规约出来的向量中，前19个都是满足这样形式的：$(u_1,u_2,...,u_n,0)$，但不能取第19个，把向量的长度计算一下发现，第19个向量的长度明显偏大，可能是因为向量不够短
 
+```py
+9
+11
+11
+11
+11
+12
+11
+12
+11
+12
+11
+11
+12
+12
+12
+13
+11
+14
+30
+```
 
 
 
