@@ -131,26 +131,28 @@ def Knapsack_Lattice2_BKZ_attack_without_mod(pk,S,block_size):
     return candidate_sulotions
 
 from Crypto.Util.number import *
+from tqdm import trange
 import random
 
-for d in range(40,95):
-    nums = 500
-    count = 0
-    for _ in range(nums):
-        secret_bits = d
-        secret = random.getrandbits(secret_bits)
-        M = [getPrime(100) for _ in range(secret_bits)]
-        S = 0
-        t = secret
-        for i in M:
-            temp = t % 2
-            S += temp * i
-            t = t >> 1
+for time in trange(1,6):
+    for d in range(70,81) :
+        nums = 500
+        count = 0
+        for _ in range(nums):
+            secret_bits = d
+            secret = random.getrandbits(secret_bits)
+            M = [getPrime(100) for _ in range(secret_bits)] 
+            S = 0
+            t = secret
+            for i in M:
+                temp = t % 2
+                S += temp * i
+                t = t >> 1
 
-        solutions = Knapsack_Lattice1_LLL_attack_without_mod(M,S)
-        if len(solutions) > 0:
-            for solution in solutions:
-                if (int(solution[::-1],2) == secret):
-                    count += 1
-                    break
-    print(f"{CDF(d / 100)} : {CDF(count / nums)}")
+            solutions = Knapsack_Lattice1_LLL_attack_without_mod(M,S)
+            if len(solutions) > 0:
+                for solution in solutions:
+                    if (int(solution[::-1],2) == secret):
+                        count += 1
+                        break
+        print(f"{CDF(d / 100)} : {CDF(count / nums)}")
